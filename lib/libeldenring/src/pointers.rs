@@ -65,7 +65,7 @@ pub struct Pointers {
     pub chunk_position: Position,
     pub torrent_chunk_position: Position,
     pub animation_speed: PointerChain<f32>,
-    pub torrent_animation_speed: PointerChain<f32>,
+    pub torrent_animation_speed: SpeedTarget,
 
     // CSLuaEventManager
     pub func_warp: usize,
@@ -105,6 +105,110 @@ pub struct Pointers {
     pub show_all_graces: Bitflag<u8>,
 
     pub base_addresses: BaseAddresses,
+}
+
+/// A fixed or dynamically resolved animation-speed field.
+#[derive(Clone, Debug)]
+pub enum SpeedTarget {
+    Static(PointerChain<f32>),
+    DynamicTorrent(DynamicTorrentSpeed),
+}
+
+#[derive(Debug)]
+pub enum SpeedTargetResolution {
+    Ready(PointerChain<f32>),
+    Unavailable(&'static str),
+}
+
+impl SpeedTarget {
+    pub fn resolve(&self) -> SpeedTargetResolution {
+        match self {
+            Self::Static(pointer) => SpeedTargetResolution::Ready(pointer.clone()),
+            Self::DynamicTorrent(torrent) => torrent.resolve(),
+        }
+    }
+
+    pub fn read(&self) -> Option<f32> {
+        match self.resolve() {
+            SpeedTargetResolution::Ready(pointer) => pointer.read(),
+            SpeedTargetResolution::Unavailable(_) => None,
+        }
+    }
+
+    pub fn write(&self, value: f32) -> Option<()> {
+        match self.resolve() {
+            SpeedTargetResolution::Ready(pointer) => pointer.write(value),
+            SpeedTargetResolution::Unavailable(_) => None,
+        }
+    }
+}
+
+/// Resolves the active Torrent from fixed pointer chains and a dynamic group
+/// lookup.
+#[derive(Clone, Debug)]
+pub struct DynamicTorrentSpeed {
+    world_chr_man: usize,
+    player_group_id: PointerChain<u8>,
+    fallback: PointerChain<f32>,
+}
+
+impl DynamicTorrentSpeed {
+    pub fn new(
+        world_chr_man: usize,
+        player_group_id: PointerChain<u8>,
+        fallback: PointerChain<f32>,
+    ) -> Self {
+        Self { world_chr_man, player_group_id, fallback }
+    }
+
+    fn is_plausible_speed(value: f32) -> bool {
+        value.is_finite() && (0.01..=100.0).contains(&value)
+    }
+
+    fn find_group(&self, group_id: u8) -> Option<PointerChain<f32>> {
+        let count: i32 = pointer_chain!(self.world_chr_man, 0x10ED8).read()?;
+        if !(0..=0x1000).contains(&count) {
+            return None;
+        }
+        for index in 0..count as usize {
+            let table_offset =
+                0x10DC8usize.checked_add(index.checked_mul(std::mem::size_of::<usize>())?)?;
+            if pointer_chain!(self.world_chr_man, table_offset, 0x08, 0x0C).read() == Some(group_id)
+            {
+                return Some(pointer_chain!(
+                    self.world_chr_man,
+                    table_offset,
+                    0x08,
+                    0x28,
+                    0x190,
+                    0x28,
+                    0x17C8
+                ));
+            }
+        }
+        None
+    }
+
+    pub fn resolve(&self) -> SpeedTargetResolution {
+        let mut candidates = Vec::new();
+        if let Some(group_id) = self.player_group_id.read() {
+            if let Some(pointer) = self.find_group(group_id) {
+                candidates.push(("group_lookup", pointer));
+            }
+        }
+
+        candidates.push(("static_slot_fallback", self.fallback.clone()));
+        for (source, pointer) in candidates {
+            let Some(speed_value) = pointer.read() else {
+                continue;
+            };
+            if Self::is_plausible_speed(speed_value) {
+                tracing::debug!(source, speed_value, "Torrent speed resolved");
+                return SpeedTargetResolution::Ready(pointer);
+            }
+        }
+        SpeedTargetResolution::Unavailable("torrent_candidate")
+    }
 }
 
 // Position
@@ -248,7 +352,7 @@ impl Pointers {
                 V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 => 0x6c8,
                 V1_04_0 | V1_04_1 | V1_05_0 | V1_06_0 | V1_07_0 => 0x6c0,
                 V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 | V2_02_0 | V2_02_3
-                | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => 0x6d0,
+                | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 | V2_07_0 => 0x6d0,
             }
         };
 
@@ -257,7 +361,7 @@ impl Pointers {
                 V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 => 0x6b8,
                 V1_04_0 | V1_04_1 | V1_05_0 | V1_06_0 | V1_07_0 => 0x6b0,
                 V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 | V2_02_0 | V2_02_3
-                | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => 0x6c0,
+                | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 | V2_07_0 => 0x6c0,
             }
         };
 
@@ -266,16 +370,15 @@ impl Pointers {
             | V1_04_1 => group_mask,
             V1_05_0 => group_mask - 8,
             V1_06_0 | V1_07_0 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1
-            | V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => {
-                group_mask
-            },
+            | V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2
+            | V2_07_0 => group_mask,
         };
 
         let show_geom = match version {
             V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0
             | V1_04_1 | V1_06_0 | V1_07_0 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0
             | V2_00_1 | V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1
-            | V2_06_2 => {
+            | V2_06_2 | V2_07_0 => {
                 vec![
                     bitflag!(0b1; group_mask + 2),
                     bitflag!(0b1; group_mask + 3),
@@ -316,7 +419,7 @@ impl Pointers {
             V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0
             | V1_04_1 | V1_06_0 | V1_07_0 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0
             | V2_00_1 | V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1
-            | V2_06_2 => {
+            | V2_06_2 | V2_07_0 => {
                 bitflag!(0b1; group_mask + 0xe)
             },
             V1_05_0 => bitflag!(0b1; group_mask + 4),
@@ -326,14 +429,18 @@ impl Pointers {
             V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0
             | V1_04_1 | V1_05_0 | V1_06_0 => 0xB658,
             V1_07_0 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 | V2_02_0
-            | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => 0x10EF8,
+            | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 | V2_07_0 => {
+                0x10EF8
+            },
         };
 
         let player_ins = match version {
             V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0
             | V1_04_1 | V1_05_0 | V1_06_0 => 0x18468,
             V1_07_0 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 | V2_02_0
-            | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => 0x1E508,
+            | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 | V2_07_0 => {
+                0x1E508
+            },
         };
 
         let torrent_enemy_ins = match version {
@@ -342,10 +449,13 @@ impl Pointers {
             V1_06_0 => 0x18378,
             V1_07_0 => 0x1E1A0,
             V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 => 0x1e1b8,
-            V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => {
-                0x1cc90
-            },
+            V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2
+            | V2_07_0 => 0x1cc90,
         };
+
+        let torrent_player_group_id = pointer_chain!(world_chr_man, player_ins, 0x190, 0, 0x7F);
+        let torrent_static_slot_speed =
+            pointer_chain!(world_chr_man, torrent_enemy_ins, 0x18, 0, 0x190, 0x28, 0x17C8);
 
         // TODO 1.08.x
         // - show stable position is broken
@@ -388,9 +498,8 @@ impl Pointers {
                 V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0
                 | V1_04_1 | V1_05_0 | V1_06_0 | V1_07_0 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1
                 | V2_00_0 | V2_00_1 => None,
-                V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => {
-                    Some(pointer_chain!(game_data_man, 0x8, 0xfc))
-                },
+                V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2
+                | V2_07_0 => Some(pointer_chain!(game_data_man, 0x8, 0xfc)),
             },
             runes: pointer_chain!(game_data_man, 0x8, 0x6C),
             igt: pointer_chain!(game_data_man, 0xA0),
@@ -409,8 +518,8 @@ impl Pointers {
                 V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 => 0x708 + 0x24,
                 V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0 | V1_04_1 | V1_05_0 | V1_06_0 | V1_07_0
                 | V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 => 0x718 + 0x24,
-                V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 =>
-                    0x720 + 0x24,
+                V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2
+                | V2_07_0 => 0x720 + 0x24,
             }),
 
             gravity: bitflag!(0b1; world_chr_man, player_ins, 0x190, 0x68, 0x1d3),
@@ -418,7 +527,7 @@ impl Pointers {
                 match version {
                     V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 => 0x6FD,
                     V1_04_0 | V1_04_1 | V1_05_0 | V1_06_0 | V1_07_0 => 0x6F5,
-                    V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1  | V2_00_0| V2_00_1 | V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2  => 0x735
+                    V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1  | V2_00_0| V2_00_1 | V2_02_0 | V2_02_3 | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 | V2_07_0  => 0x735
                 }
             ),
             global_position: Position {
@@ -476,15 +585,11 @@ impl Pointers {
                 )),
             },
             animation_speed: pointer_chain!(world_chr_man, player_ins, 0x190, 0x28, 0x17C8),
-            torrent_animation_speed: pointer_chain!(
+            torrent_animation_speed: SpeedTarget::DynamicTorrent(DynamicTorrentSpeed::new(
                 world_chr_man,
-                torrent_enemy_ins,
-                0x18,
-                0,
-                0x190,
-                0x28,
-                0x17C8
-            ),
+                torrent_player_group_id,
+                torrent_static_slot_speed,
+            )),
 
             deathcam: (
                 bitflag!(0b100; world_chr_man, player_ins, 0x1c8),
@@ -520,7 +625,7 @@ impl Pointers {
                     V1_02_0 | V1_02_1 | V1_02_2 | V1_02_3 | V1_03_0 | V1_03_1 | V1_03_2 | V1_04_0
                     | V1_04_1 | V1_05_0 | V1_06_0 | V1_07_0 => [0xB2],
                     V1_08_0 | V1_08_1 | V1_09_0 | V1_09_1 | V2_00_0 | V2_00_1 | V2_02_0 | V2_02_3
-                    | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 => [0xC2],
+                    | V2_03_0 | V2_04_0 | V2_05_0 | V2_06_0 | V2_06_1 | V2_06_2 | V2_07_0 => [0xC2],
                 }; func_dbg_action_force + 7),
             current_target: pointer_chain!(current_target),
             show_all_map_layers: bitflag!(0b1; func_check_graces),
