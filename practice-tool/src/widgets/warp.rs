@@ -33,9 +33,9 @@ impl Warp {
         arg2: PointerChain<u64>,
         hotkey_close: Key,
     ) -> Self {
-        let label_close = format!("Close ({hotkey_close})");
+        let label_close = format!("关闭（{hotkey_close}）");
         Warp {
-            label: "Warp to Grace".to_string(),
+            label: "传送至赐福".to_string(),
             label_close,
             hotkey_close,
             warp_ptr,
@@ -96,9 +96,7 @@ impl Widget for Warp {
         {
             let _tok = ui.push_item_width(-1.);
 
-            if InputText::new(ui, "##warp-filter", &mut self.filter_string)
-                .hint("Filter...")
-                .build()
+            if InputText::new(ui, "##warp-filter", &mut self.filter_string).hint("筛选...").build()
             {
                 GRACES.iter().enumerate().for_each(|(idx, (grace, _))| {
                     self.filter_list[idx] =
@@ -127,7 +125,7 @@ impl Widget for Warp {
             }
 
             let _tok = ui.push_item_width(-1.);
-            if ui.button_with_size("Warp", [400., button_height]) {
+            if ui.button_with_size("传送", [400., button_height]) {
                 self.warp();
             }
 

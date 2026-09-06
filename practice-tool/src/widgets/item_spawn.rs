@@ -17,19 +17,19 @@ use serde::Deserialize;
 use super::string_match;
 
 static AFFINITIES: [(u32, &str); 13] = [
-    (0, "No affinity"),
-    (100, "Heavy"),
-    (200, "Keen"),
-    (300, "Quality"),
-    (400, "Fire"),
-    (500, "Flame Art"),
-    (600, "Lightning"),
-    (700, "Sacred"),
-    (800, "Magic"),
-    (900, "Cold"),
-    (1000, "Poison"),
-    (1100, "Blood"),
-    (1200, "Occult"),
+    (0, "无质变"),
+    (100, "厚重"),
+    (200, "锋利"),
+    (300, "优质"),
+    (400, "火焰"),
+    (500, "焰术"),
+    (600, "雷电"),
+    (700, "神圣"),
+    (800, "魔力"),
+    (900, "寒冷"),
+    (1000, "毒"),
+    (1100, "血"),
+    (1200, "神秘"),
 ];
 
 static UPGRADES: [(u32, &str); 26] = [
@@ -185,9 +185,9 @@ impl ItemSpawner<'_> {
         hotkey_close: Key,
     ) -> Self {
         let label_load = hotkey_load
-            .map(|k| format!("Spawn item ({k})"))
-            .unwrap_or_else(|| "Spawn item".to_string());
-        let label_close = format!("Close ({hotkey_close})");
+            .map(|k| format!("生成物品（{k}）"))
+            .unwrap_or_else(|| "生成物品".to_string());
+        let label_close = format!("关闭（{hotkey_close}）");
         ItemSpawner {
             func_ptr,
             map_item_man,
@@ -276,7 +276,7 @@ impl Widget for ItemSpawner<'_> {
             {
                 let _tok = ui.push_item_width(-1.);
                 if InputText::new(ui, "##item-spawn-filter", &mut self.filter_string)
-                    .hint("Filter...")
+                    .hint("筛选...")
                     .build()
                 {
                     self.item_id_tree =
@@ -300,12 +300,12 @@ impl Widget for ItemSpawner<'_> {
                 Cow::Borrowed(label)
             });
 
-            ui.slider_config("Qty", 1, 99).build(&mut self.qty);
+            ui.slider_config("数量", 1, 99).build(&mut self.qty);
             if ui.button_with_size(&self.label_load, [400., button_height]) {
                 self.spawn();
             }
 
-            if ui.button_with_size("Clear", [400., button_height]) {
+            if ui.button_with_size("清除", [400., button_height]) {
                 self.filter_string.clear();
                 self.qty = 1;
                 self.item_id = 0x40000000 + 2919;

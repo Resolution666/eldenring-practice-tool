@@ -404,46 +404,49 @@ impl TryFrom<String> for FlagSpec {
                 }
             }
         }
-        flag_spec!(value.as_str(), [
-            (one_shot, "One shot"),
-            (no_damage, "All no damage"),
-            (no_dead, "No death"),
-            (no_hit, "No hit"),
-            (no_goods_consume, "Inf Consumables"),
-            (no_stamina_consume, "Inf Stamina"),
-            (no_fp_consume, "Inf Focus"),
-            (no_ashes_of_war_fp_consume, "Inf Focus (AoW)"),
-            (no_arrows_consume, "Inf arrows"),
-            (no_attack, "No attack"),
-            (no_move, "No move"),
-            (no_update_ai, "No update AI"),
-            (no_trigger_event, "No trigger events"),
-            (runearc, "Rune Arc"),
-            (gravity, "No Gravity"),
-            (torrent_gravity, "No Gravity (Torrent)"),
-            (collision, "No Collision"),
-            (torrent_collision, "No Collision (Torrent)"),
-            (action_freeze, "Action freeze"),
-            (display_stable_pos, "Show stable pos"),
-            (weapon_hitbox1, "Weapon hitbox #1"),
-            (weapon_hitbox2, "Weapon hitbox #2"),
-            (weapon_hitbox3, "Weapon hitbox #3"),
-            (hitbox_high, "High world hitbox"),
-            (hitbox_low, "Low world hitbox"),
-            (hitbox_f, "Walls hitbox"),
-            (hitbox_character, "Character hitbox"),
-            (hitbox_event, "Event hitbox"),
-            (poise_view, "Poise View"),
-            (sound_view, "Sound View"),
-            (all_targeting_view, "Targeting View"),
-            (field_area_direction, "Direction HUD"),
-            (field_area_altimeter, "Altimeter HUD"),
-            (field_area_compass, "Compass HUD"),
-            // (show_map, "Show/hide map"),
-            (show_chr, "Show/hide character"),
-            (show_all_map_layers, "Show all map layers"),
-            (show_all_graces, "Show all graces"),
-        ])
+        flag_spec!(
+            value.as_str(),
+            [
+                (one_shot, "一击必杀"),
+                (no_damage, "无伤"),
+                (no_dead, "不死亡"),
+                (no_hit, "不受击"),
+                (no_goods_consume, "消耗品无限"),
+                (no_stamina_consume, "精力无消耗"),
+                (no_fp_consume, "专注值无消耗"),
+                (no_ashes_of_war_fp_consume, "专注值无消耗（战灰）"),
+                (no_arrows_consume, "箭矢无消耗"),
+                (no_attack, "不攻击"),
+                (no_move, "不移动"),
+                (no_update_ai, "禁用 AI 更新"),
+                (no_trigger_event, "不触发事件"),
+                (runearc, "卢恩弯弧"),
+                (gravity, "无重力"),
+                (torrent_gravity, "无重力（托雷特）"),
+                (collision, "无碰撞"),
+                (torrent_collision, "无碰撞（托雷特）"),
+                (action_freeze, "动作冻结"),
+                (display_stable_pos, "显示稳定位置"),
+                (weapon_hitbox1, "武器碰撞箱 #1"),
+                (weapon_hitbox2, "武器碰撞箱 #2"),
+                (weapon_hitbox3, "武器碰撞箱 #3"),
+                (hitbox_high, "高位世界碰撞箱"),
+                (hitbox_low, "低位世界碰撞箱"),
+                (hitbox_f, "墙体碰撞箱"),
+                (hitbox_character, "角色碰撞箱"),
+                (hitbox_event, "事件碰撞箱"),
+                (poise_view, "韧性显示"),
+                (sound_view, "声音显示"),
+                (all_targeting_view, "目标锁定显示"),
+                (field_area_direction, "方向 HUD"),
+                (field_area_altimeter, "高度 HUD"),
+                (field_area_compass, "罗盘 HUD"),
+                // (show_map, "Show/hide map"),
+                (show_chr, "显示/隐藏角色"),
+                (show_all_map_layers, "显示所有地图层"),
+                (show_all_graces, "显示所有赐福"),
+            ]
+        )
     }
 }
 
@@ -471,24 +474,27 @@ impl TryFrom<String> for MultiFlagSpec {
 
     fn try_from(value: String) -> Result<Self, Self::Error> {
         match value.as_str() {
-            "show_map" => Ok(MultiFlagSpec::new("Show/hide map", vec![
-                |c| &c.show_geom[0],
-                |c| &c.show_geom[1],
-                |c| &c.show_geom[2],
-                |c| &c.show_geom[3],
-                |c| &c.show_geom[4],
-                |c| &c.show_geom[5],
-                |c| &c.show_geom[6],
-                |c| &c.show_geom[7],
-                |c| &c.show_geom[8],
-                |c| &c.show_geom[9],
-                |c| &c.show_geom[10],
-                |c| &c.show_geom[11],
-                |c| &c.show_geom[12],
-                |c| &c.show_geom[if c.show_geom.len() <= 13 { 12 } else { 13 }], // UGLY
-                |c| &c.show_geom[if c.show_geom.len() <= 13 { 12 } else { 14 }], // AS
-                |c| &c.show_geom[if c.show_geom.len() <= 13 { 12 } else { 15 }], // SIN
-            ])),
+            "show_map" => Ok(MultiFlagSpec::new(
+                "显示/隐藏地图",
+                vec![
+                    |c| &c.show_geom[0],
+                    |c| &c.show_geom[1],
+                    |c| &c.show_geom[2],
+                    |c| &c.show_geom[3],
+                    |c| &c.show_geom[4],
+                    |c| &c.show_geom[5],
+                    |c| &c.show_geom[6],
+                    |c| &c.show_geom[7],
+                    |c| &c.show_geom[8],
+                    |c| &c.show_geom[9],
+                    |c| &c.show_geom[10],
+                    |c| &c.show_geom[11],
+                    |c| &c.show_geom[12],
+                    |c| &c.show_geom[if c.show_geom.len() <= 13 { 12 } else { 13 }], // UGLY
+                    |c| &c.show_geom[if c.show_geom.len() <= 13 { 12 } else { 14 }], // AS
+                    |c| &c.show_geom[if c.show_geom.len() <= 13 { 12 } else { 15 }], // SIN
+                ],
+            )),
             e => Err(format!("\"{e}\" is not a valid multiflag specifier")),
         }
     }

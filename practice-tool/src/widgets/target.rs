@@ -118,8 +118,8 @@ impl Target {
 
         Target {
             label: hotkey
-                .map(|k| format!("Target entity info ({k})"))
-                .unwrap_or_else(|| "Target entity info".to_string()),
+                .map(|k| format!("目标实体信息（{k}）"))
+                .unwrap_or_else(|| "目标实体信息".to_string()),
             alloc_addr,
             detour_addr,
             detour_orig_data: Default::default(),
@@ -237,7 +237,7 @@ impl Widget for Target {
             self.get_data()
         else {
             if self.is_enabled {
-                ui.text("No enemy locked on")
+                ui.text("未锁定敌人")
             };
             return;
         };
@@ -310,7 +310,7 @@ impl Widget for Target {
         pbar("SP", sp, max_sp, COLOR_SP);
         pbar("MP", mp, max_mp, COLOR_MP);
 
-        ui.text(format!("Poise    {poise:>6.0}/{poise_max:>6.0} {poise_time:.2}s"));
+        ui.text(format!("韧性    {poise:>6.0}/{poise_max:>6.0} {poise_time:.2}s"));
         let pct = if poise_max.abs() < 0.0001 { 0.0 } else { poise / poise_max };
         let tok = ui.push_style_color(StyleColor::PlotHistogram, COLOR_BASE);
         ProgressBar::new(pct).size(pbar_size).overlay_text("").build(ui);

@@ -23,7 +23,7 @@ impl ReadWrite for Quitout {
     }
 
     fn label(&self) -> &str {
-        "Quitout"
+        "退回主菜单"
     }
 }
 

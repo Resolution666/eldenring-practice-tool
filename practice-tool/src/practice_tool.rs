@@ -1,4 +1,6 @@
+use std::env;
 use std::fmt::Write;
+use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Mutex;
 use std::thread;
@@ -266,17 +268,17 @@ impl PracticeTool {
                     w.render(ui);
                 }
 
-                if ui.button_with_size("Close", [BUTTON_WIDTH * scaling_factor(ui), BUTTON_HEIGHT])
+                if ui.button_with_size("关闭", [BUTTON_WIDTH * scaling_factor(ui), BUTTON_HEIGHT])
                 {
                     self.ui_state = UiState::Closed;
                     self.pointers.cursor_show.set(false);
                 }
 
                 if option_env!("CARGO_XTASK_DIST").is_none()
-                    && ui.button_with_size("Eject", [
-                        BUTTON_WIDTH * scaling_factor(ui),
-                        BUTTON_HEIGHT,
-                    ])
+                    && ui.button_with_size(
+                        "卸载",
+                        [BUTTON_WIDTH * scaling_factor(ui), BUTTON_HEIGHT],
+                    )
                 {
                     self.ui_state = UiState::Closed;
                     self.pointers.cursor_show.set(false);
@@ -304,7 +306,7 @@ impl PracticeTool {
                     | WindowFlags::ALWAYS_AUTO_RESIZE
             })
             .build(|| {
-                ui.text("johndisandonato's Practice Tool");
+                ui.text("johndisandonato 的练习工具");
 
                 // ui.same_line();
 
@@ -365,7 +367,7 @@ impl PracticeTool {
                                     ui.cursor_pos()[1],
                                 ]);
 
-                                if ui.button("Reset") {
+                                if ui.button("重置") {
                                     self.framecount = 0;
                                 }
                             }
@@ -382,7 +384,7 @@ impl PracticeTool {
                                     ui.cursor_pos()[1],
                                 ]);
 
-                                if ui.button("Start XYZ") {
+                                if ui.button("启动 XYZ") {
                                     if let Some([x, y, z, _a1, _a2]) =
                                         self.pointers.global_position.read()
                                     {
@@ -397,7 +399,7 @@ impl PracticeTool {
                         let btn_close_width =
                             ui.content_region_max()[0] - style.frame_padding[0] * 2.0;
 
-                        if ui.button_with_size("Close", [btn_close_width, 0.0]) {
+                        if ui.button_with_size("关闭", [btn_close_width, 0.0]) {
                             ui.close_current_popup();
                             self.pointers.cursor_show.set(false);
                         }
@@ -462,18 +464,18 @@ impl PracticeTool {
                             open::that("https://twitch.tv/johndisandonato").ok();
                         }
                         ui.separator();
-                        if ui.button("Submit issue") {
+                        if ui.button("提交问题") {
                             open::that(
                                 "https://github.com/veeenu/eldenring-practice-tool/issues/new",
                             )
                             .ok();
                         }
                         ui.same_line();
-                        if ui.button("Support") {
+                        if ui.button("支持") {
                             open::that("https://patreon.com/johndisandonato").ok();
                         }
                         ui.same_line();
-                        if ui.button("Close") {
+                        if ui.button("关闭") {
                             ui.close_current_popup();
                             self.pointers.cursor_show.set(false);
                         }
@@ -492,19 +494,19 @@ impl PracticeTool {
                             },
                             Update::Available { url, notes } => {
                                 ui.text(notes);
-                                if ui.button("Download") {
+                                if ui.button("下载") {
                                     open::that(url).ok();
                                 }
                                 ui.same_line();
                             },
                             Update::Error(e) => {
-                                ui.text("Update error: could not check for updates.");
+                                ui.text("更新错误：无法检查更新。");
                                 ui.separator();
                                 ui.text(e);
                             },
                         }
 
-                        if ui.button("Close") {
+                        if ui.button("关闭") {
                             ui.close_current_popup();
                             self.pointers.cursor_show.set(false);
                         }
@@ -856,21 +858,60 @@ impl ImguiRenderLoop for PracticeTool {
 
     fn initialize(&mut self, ctx: &mut Context, _: &mut dyn RenderContext) {
         let fonts = ctx.fonts();
+        let config_small = FontConfig {
+            size_pixels: 11.,
+            oversample_h: 2,
+            oversample_v: 1,
+            pixel_snap_h: false,
+            glyph_extra_spacing: [0., 0.],
+            glyph_offset: [0., 0.],
+            glyph_ranges: imgui::FontGlyphRanges::chinese_full(),
+            glyph_min_advance_x: 0.,
+            glyph_max_advance_x: f32::MAX,
+            font_builder_flags: 0,
+            rasterizer_multiply: 1.,
+            ellipsis_char: None,
+            name: Some(String::from("Chinese Font")),
+        };
+        let mut config_normal = config_small.clone();
+        config_normal.size_pixels = 18.;
+        let mut config_big = config_small.clone();
+        config_big.size_pixels = 24.;
+
+        let mut system_font_dir = PathBuf::from("C:\\Windows\\Fonts");
+        if let Some(windir) = env::var_os("windir") {
+            let path = PathBuf::from(windir).join("Fonts");
+            if path.is_dir() {
+                system_font_dir = path;
+            }
+        }
+        let font_data = [
+            "dengb.ttf",
+            "deng.ttf",
+            "msyh.ttc",
+            "msjhbd.ttc",
+            "msjh.ttc",
+            "simsun.ttc",
+            "mingliub.ttc",
+        ]
+        .iter()
+        .find_map(|filename| std::fs::read(system_font_dir.join(filename)).ok())
+        .unwrap_or_else(|| include_bytes!("../../lib/data/ComicMono.ttf").to_vec());
         self.fonts = Some(FontIDs {
             small: fonts.add_font(&[FontSource::TtfData {
-                data: include_bytes!("../../lib/data/ComicMono.ttf"),
+                data: &font_data,
                 size_pixels: 11.,
-                config: None,
+                config: Some(config_small),
             }]),
             normal: fonts.add_font(&[FontSource::TtfData {
-                data: include_bytes!("../../lib/data/ComicMono.ttf"),
+                data: &font_data,
                 size_pixels: 18.,
-                config: None,
+                config: Some(config_normal),
             }]),
             big: fonts.add_font(&[FontSource::TtfData {
-                data: include_bytes!("../../lib/data/ComicMono.ttf"),
+                data: &font_data,
                 size_pixels: 24.,
-                config: None,
+                config: Some(config_big),
             }]),
         });
     }

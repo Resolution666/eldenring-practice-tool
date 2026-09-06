@@ -1,494 +1,494 @@
 "Weapons":
     "?":
-        "Unarmed": 110000
+        "徒手": 110000
     "Daggers":
-        "Dagger": 1000000
-        "Black Knife": 1010000
-        "Parrying Dagger": 1020000
-        "Misricorde": 1030000
-        "Reduvia": 1040000
-        "Crystal Knife": 1050000
-        "Celebrant's Sickle": 1060000
-        "Glintstone Kris": 1070000
-        "Scorpion's Stinger": 1080000
-        "Great Knife": 1090000
-        "Wakizashi": 1100000
-        "Cinquedea": 1110000
-        "Ivory Sickle": 1130000
-        "Bloodstained Dagger": 1140000
-        "Erdsteel Dagger": 1150000
-        "Blade of Calling": 1160000
+        "匕首": 1000000
+        "黑刀": 1010000
+        "格挡匕首": 1020000
+        "慈悲短剑": 1030000
+        "逆刺": 1040000
+        "结晶小刀": 1050000
+        "庆典小镰刀": 1060000
+        "辉石克力士": 1070000
+        "蝎尾针": 1080000
+        "单刃小刀": 1090000
+        "胁差": 1100000
+        "五指剑": 1110000
+        "象牙小镰刀": 1130000
+        "染血短刀": 1140000
+        "黄铜短刀": 1150000
+        "使命短刀": 1160000
     "Straight Swords":
-        "Longsword": 2000000
-        "Short Sword": 2010000
-        "Broadsword": 2020000
+        "长剑": 2000000
+        "短剑": 2010000
+        "阔剑": 2020000
         "Royal Soldier Straight Sword": 2030000
-        "Lordsworn's Straight Sword": 2040000
-        "Weathered Straight Sword": 2050000
-        "Ornamental Straight Sword": 2060000
-        "Golden Epitaph": 2070000
-        "Nox Flowing Sword": 2080000
-        "Inseparable Sword": 2090000
-        "Coded Sword": 2110000
-        "Sword of Night and Flame": 2140000
-        "Crystal Sword": 2150000
-        "Carian Knight's Sword": 2180000
-        "Sword of St. Trina": 2190000
-        "Miquellan Knight's Sword": 2200000
-        "Cane Sword": 2210000
-        "Regalia of Eochaid": 2220000
-        "Noble's Slender Sword": 2230000
-        "Warhawk's Talon": 2240000
-        "Lazuli Glintstone Sword": 2250000
-        "Rotten Crystal Sword": 2260000
+        "君王军直剑": 2040000
+        "老旧直剑": 2050000
+        "仪式直剑": 2060000
+        "黄金墓碑": 2070000
+        "诺克斯流体剑": 2080000
+        "紧密孪生剑": 2090000
+        "秘文剑": 2110000
+        "夜与火之剑": 2140000
+        "结晶剑": 2150000
+        "卡利亚骑士剑": 2180000
+        "托莉娜剑": 2190000
+        "米凯拉骑士剑": 2200000
+        "手杖剑": 2210000
+        "欧赫宝剑": 2220000
+        "权贵细身剑": 2230000
+        "战鹰爪形剑": 2240000
+        "拉兹利辉石剑": 2250000
+        "腐败结晶剑": 2260000
     "Greatswords":
-        "Bastard Sword": 3000000
-        "Forked Greatsword": 3010000
-        "Iron Greatsword": 3020000
-        "Lordsworn's Greatsword": 3030000
-        "Knight's Greatsword": 3040000
-        "Flamberge": 3050000
-        "Ordovis's Greatsword": 3060000
-        "Alabaster Lord's Sword": 3070000
-        "Banished Knight's Greatsword": 3080000
-        "Dark Moon Greatsword": 3090000
-        "Sacred Relic Sword": 3100000
-        "Helphen's Steeple": 3130000
-        "Blasphemous Blade": 3140000
-        "Marais Executioner's Sword": 3150000
-        "Sword of Milos": 3160000
-        "Golden Order Greatsword": 3170000
-        "Claymore": 3180000
-        "Gargoyle's Greatsword": 3190000
-        "Death's Poker": 3200000
-        "Gargoyle's Blackblade": 3210000
+        "混种大剑": 3000000
+        "分岔大剑": 3010000
+        "铁制大剑": 3020000
+        "君王军大剑": 3030000
+        "骑士大剑": 3040000
+        "焰形大剑": 3050000
+        "奥陶琵斯大剑": 3060000
+        "白王剑": 3070000
+        "失乡骑士大剑": 3080000
+        "暗月大剑": 3090000
+        "神躯化剑": 3100000
+        "赫芬尖塔剑": 3130000
+        "亵渎圣剑": 3140000
+        "玛雷家行刑剑": 3150000
+        "灭洛斯剑": 3160000
+        "黄金律法大剑": 3170000
+        "大剑": 3180000
+        "石像鬼大剑": 3190000
+        "死亡钩棒": 3200000
+        "石像鬼黑剑": 3210000
     "Colossal Swords":
-        "Greatsword": 4000000
-        "Watchdog's Greatsword": 4010000
-        "Maliketh's Black Blade": 4020000
-        "Troll's Golden Sword": 4030000
-        "Zweihander": 4040000
-        "Starscourge Greatsword": 4050000
-        "Royal Greatsword": 4060000
-        "Godslayer's Greatsword": 4070000
-        "Ruins Greatsword": 4080000
-        "Grafted Blade Greatsword": 4100000
-        "Troll Knight's Sword": 4110000
+        "巨剑": 4000000
+        "看门犬大剑": 4010000
+        "玛利喀斯的黑剑": 4020000
+        "山妖黄金剑": 4030000
+        "双手巨剑": 4040000
+        "碎星大剑": 4050000
+        "王室巨剑": 4060000
+        "狩猎神祇大剑": 4070000
+        "遗迹大剑": 4080000
+        "剑骸大剑": 4100000
+        "山妖骑士剑": 4110000
     "Thrusting Swords":
-        "Estoc": 5000000
-        "Cleanrot Knight's Sword": 5010000
-        "Rapier": 5020000
-        "Rogier's Rapier": 5030000
-        "Antspur Rapier": 5040000
-        "Frozen Needle": 5050000
-        "Noble's Estoc": 5060000
+        "刺剑": 5000000
+        "尊腐骑士剑": 5010000
+        "细剑": 5020000
+        "罗杰尔刺剑": 5030000
+        "蚁刺细剑": 5040000
+        "结冰针": 5050000
+        "权贵刺剑": 5060000
     "Great Thrusting Swords":
-        "Bloody Helice": 6000000
-        "Godskin Stitcher": 6010000
-        "Great pe": 6020000
-        "Dragon King's Cragblade": 6040000
+        "鲜血旋流": 6000000
+        "神皮缝针": 6010000
+        "大重剑": 6020000
+        "龙王岩剑": 6040000
     "Curved Swords":
-        "Falchion": 7000000
-        "Beastman's Curved Sword": 7010000
-        "Shotel": 7020000
-        "Shamshir": 7030000
-        "Bandit's Curved Sword": 7040000
-        "Magma Blade": 7050000
-        "Flowing Curved Sword": 7060000
-        "Wing of Astel": 7070000
-        "Scavenger's Curved Sword": 7080000
+        "弯刃大刀": 7000000
+        "兽人弯刀": 7010000
+        "钩剑": 7020000
+        "赛施尔长刀": 7030000
+        "山贼弯刀": 7040000
+        "熔岩刀": 7050000
+        "流水曲剑": 7060000
+        "艾丝缇薄翼": 7070000
+        "剥尸曲剑": 7080000
         "Sharktooth Curved Sword": 7090000
-        "Eclipse Shotel": 7100000
-        "Serpent-God's Curved Sword": 7110000
-        "Mantis Blade": 7120000
-        "Scimitar": 7140000
-        "Grossmesser": 7150000
+        "日蚀钩剑": 7100000
+        "蛇神弯刀": 7110000
+        "螳臂刀": 7120000
+        "短弯刀": 7140000
+        "巨型刀": 7150000
     "Curved Greatswords":
-        "Onyx Lord's Greatsword": 8010000
-        "Dismounter": 8020000
-        "Bloodhound's Fang": 8030000
-        "Magma Wyrm's Scalesword": 8040000
-        "Zamor Curved Sword": 8050000
-        "Omen Cleaver": 8060000
-        "Monk's Flameblade": 8070000
-        "Beastman's Cleaver": 8080000
-        "Morgott's Cursed Sword": 8100000
-        "Holy Inferno Greatsword": 8110000
+        "黑王大剑": 8010000
+        "骑兵马刀": 8020000
+        "猎犬长牙": 8030000
+        "土龙鳞剑": 8040000
+        "萨米尔弯刀": 8050000
+        "恶兆之子大刀": 8060000
+        "习武修士火纹刀": 8070000
+        "兽人大弯刀": 8080000
+        "蒙葛特咒剑": 8100000
+        "神火大弯刀": 8110000
     "Katanas":
-        "Uchigatana": 9000000
-        "Nagakiba": 9010000
-        "Hand of Malenia": 9020000
-        "Meteoric Ore Blade": 9030000
-        "Rivers of Blood": 9040000
-        "Moonveil": 9060000
-        "Dragonscale Blade": 9070000
-        "Serpentbone Blade": 9080000
+        "打刀": 9000000
+        "长牙": 9010000
+        "玛莲妮亚的义手刀": 9020000
+        "铁陨石刀": 9030000
+        "尸山血海": 9040000
+        "名刀月隐": 9060000
+        "龙鳞刀": 9070000
+        "蛇骨刀": 9080000
     "Twinblades":
-        "Twinblade": 10000000
-        "Godskin Peeler": 10010000
-        "Twinned Knight Swords": 10030000
-        "Eleonora's Poleblade": 10050000
-        "Abundance and Decay Twinblade": 10060000
+        "双头剑": 10000000
+        "神皮剥制剑": 10010000
+        "骑士双头剑": 10030000
+        "艾琉诺拉的双头刀": 10050000
+        "丰饶与腐败双刃剑": 10060000
         "Abundance Twinblade": 10070000
-        "Gargoyle's Twinblade": 10080000
-        "Gargoyle's Black Blades": 10090000
+        "石像鬼双头剑": 10080000
+        "石像鬼黑双头剑": 10090000
     "Hammers":
-        "Mace": 11000000
-        "Club": 11010000
-        "Curved Club": 11030000
-        "Warpick": 11040000
-        "Morning Star": 11050000
-        "Varr's Bouquet": 11060000
-        "Spiked Club": 11070000
-        "Hammer": 11080000
-        "Monk's Flamemace": 11090000
-        "Envoy's Horn": 11100000
-        "Scepter of the All-Knowing": 11110000
-        "Nox Flowing Hammer": 11120000
-        "Ringed Finger": 11130000
-        "Stone Club": 11140000
-        "Marika's Hammer": 11150000
-        "Father Marika's Hammer": 11160000
+        "锤矛": 11000000
+        "棍棒": 11010000
+        "弯曲棍棒": 11030000
+        "战镐": 11040000
+        "晨星锤": 11050000
+        "梵雷的花束": 11060000
+        "兽牙棒": 11070000
+        "石槌": 11080000
+        "习武修士火纹锤": 11090000
+        "众使者的笛子": 11100000
+        "百智权杖": 11110000
+        "诺克斯流体锤": 11120000
+        "戒指指头": 11130000
+        "石棍棒": 11140000
+        "玛莉卡的石槌": 11150000
+        "神父的玛莉卡槌": 11160000
     "Greathammers":
-        "Large Club": 12000000
-        "Greathorn Hammer": 12010000
-        "Battle Hammer": 12020000
-        "Great Mace": 12060000
-        "Curved Great Club": 12080000
-        "Celebrant's Skull": 12130000
-        "Pickaxe": 12140000
-        "Beastclaw Greathammer": 12150000
-        "Envoy's Long Horn": 12160000
-        "Cranial Vessel Candlestand": 12170000
-        "Great Stars": 12180000
-        "Brick Hammer": 12190000
-        "Devourer's Scepter": 12200000
-        "Rotten Battle Hammer": 12210000
+        "大棍棒": 12000000
+        "大角槌": 12010000
+        "斗技锤": 12020000
+        "巨型锤矛": 12060000
+        "弯曲大棍棒": 12080000
+        "庆典大头盖骨": 12130000
+        "十字镐": 12140000
+        "兽爪大锤": 12150000
+        "众使者的长笛子": 12160000
+        "尊容烛台": 12170000
+        "巨星锤": 12180000
+        "砌石槌": 12190000
+        "吞世权杖": 12200000
+        "腐败斗技锤": 12210000
     "Flails":
-        "Nightrider Flail": 13000000
-        "Flail": 13010000
-        "Family Heads": 13020000
-        "Bastard's Stars": 13030000
-        "Chainlink Flail": 13040000
+        "黑夜骑兵连枷": 13000000
+        "连枷": 13010000
+        "家族头连枷": 13020000
+        "弃子的繁星": 13030000
+        "铁块连枷": 13040000
     "Axes":
-        "Battle Axe": 14000000
-        "Forked Hatchet": 14010000
-        "Hand Axe": 14020000
-        "Jawbone Axe": 14030000
-        "Iron Cleaver": 14040000
-        "Ripple Blade": 14050000
-        "Celebrant's Cleaver": 14060000
-        "Icerind Hatchet": 14080000
-        "Highland Axe": 14100000
-        "Sacrificial Axe": 14110000
-        "Rosus' Axe": 14120000
+        "战斧": 14000000
+        "分岔手斧": 14010000
+        "手斧": 14020000
+        "颚齿斧": 14030000
+        "铁柴刀": 14040000
+        "波纹剑": 14050000
+        "庆典柴刀": 14060000
+        "冻壳斧": 14080000
+        "高地斧": 14100000
+        "活祭品斧": 14110000
+        "罗泽司的斧": 14120000
         "Burial Axe": 14130000
-        "Stormhawk Axe": 14140000
+        "风暴鹰斧": 14140000
     "Greataxes":
-        "Greataxe": 15000000
-        "Warped Axe": 15010000
-        "Great Omenkiller Cleaver": 15020000
-        "Crescent Moon Axe": 15030000
-        "Axe of Godrick": 15040000
-        "Longhaft Axe": 15050000
-        "Rusted Anchor": 15060000
-        "Executioner's Greataxe": 15080000
-        "Winged Greathorn": 15110000
-        "Butchering Knife": 15120000
-        "Gargoyle's Great Axe": 15130000
-        "Gargoyle's Black Axe": 15140000
+        "巨斧": 15000000
+        "歪柄斧": 15010000
+        "恶兆猎人大柴刀": 15020000
+        "弦月斧": 15030000
+        "葛瑞克的王斧": 15040000
+        "长柄柴刀": 15050000
+        "锈蚀船锚": 15060000
+        "斩身大柴刀": 15080000
+        "展翼大角": 15110000
+        "肢解菜刀": 15120000
+        "石像鬼大斧": 15130000
+        "石像鬼黑斧": 15140000
     "Spears":
-        "Short Spear": 16000000
-        "Spear": 16010000
-        "Crystal Spear": 16020000
-        "Clayman's Harpoon": 16030000
-        "Cleanrot Spear": 16040000
-        "Partisan": 16050000
-        "Celebrant's Rib-Rake": 16060000
-        "Pike": 16070000
-        "Torchpole": 16080000
-        "Bolt of Gransax": 16090000
-        "Cross-Naginata": 16110000
-        "Death Ritual Spear": 16120000
-        "Inquisitor's Girandole": 16130000
-        "Spiked Spear": 16140000
-        "Iron Spear": 16150000
-        "Rotten Crystal Spear": 16160000
+        "短矛": 16000000
+        "矛": 16010000
+        "结晶矛": 16020000
+        "泥人鱼叉": 16030000
+        "尊腐骑士矛": 16040000
+        "阔头枪": 16050000
+        "庆典肋骨钉耙": 16060000
+        "长矛": 16070000
+        "烛台棒": 16080000
+        "古兰桑克斯的雷电": 16090000
+        "十字刀": 16110000
+        "死亡仪式矛": 16120000
+        "拷问烛台": 16130000
+        "棘刺棍": 16140000
+        "铁制矛": 16150000
+        "腐败结晶矛": 16160000
     "Lances":
-        "Mohgwyn's Sacred Spear": 17010000
-        "Siluria's Tree": 17020000
-        "Serpent-Hunter": 17030000
-        "Vyke's War Spear": 17050000
-        "Lance": 17060000
-        "Treespear": 17070000
+        "蒙格温圣矛": 17010000
+        "志留亚的树矛": 17020000
+        "大蛇狩猎矛": 17030000
+        "维克的战矛": 17050000
+        "骑兵长矛": 17060000
+        "大树矛": 17070000
     "Halberds":
-        "Halberd": 18000000
-        "Pest's Glaive": 18010000
-        "Lucerne": 18020000
-        "Banished Knight's Halberd": 18030000
-        "Commander's Standard": 18040000
-        "Nightrider Glaive": 18050000
-        "Ripple Crescent Halberd": 18060000
-        "Vulgar Militia Saw": 18070000
-        "Golden Halberd": 18080000
-        "Glaive": 18090000
-        "Loretta's War Sickle": 18100000
-        "Guardian's Swordspear": 18110000
-        "Vulgar Militia Shotel": 18130000
-        "Dragon Halberd": 18140000
-        "Gargoyle's Halberd": 18150000
-        "Gargoyle's Black Halberd": 18160000
+        "戟": 18000000
+        "昆虫剑刃戟": 18010000
+        "琉森戟": 18020000
+        "失乡骑士戟": 18030000
+        "老将的军旗": 18040000
+        "黑夜骑兵剑刃戟": 18050000
+        "残缺波纹戟": 18060000
+        "恶兵锯齿刀": 18070000
+        "黄金戟": 18080000
+        "剑刃戟": 18090000
+        "罗蕾塔的战镰": 18100000
+        "守卫剑枪": 18110000
+        "恶兵钩剑": 18130000
+        "龙戟": 18140000
+        "石像鬼戟": 18150000
+        "石像鬼黑戟": 18160000
     "Reapers":
-        "Scythe": 19000000
-        "Grave Scythe": 19010000
-        "Halo Scythe": 19020000
-        "Heretic's Hook": 19050000
-        "Winged Scythe": 19060000
+        "大镰刀": 19000000
+        "墓地大镰刀": 19010000
+        "光环镰刀": 19020000
+        "异端钩刃镰刀": 19050000
+        "展翼镰刀": 19060000
     "Whips":
-        "Whip": 20000000
-        "Thorned Whip": 20020000
-        "Magma Whip Candlestick": 20030000
-        "Hoslow's Petal Whip": 20050000
-        "Giant's Red Braid": 20060000
-        "Urumi": 20070000
+        "软鞭": 20000000
+        "荆棘鞭": 20020000
+        "熔岩烛台鞭": 20030000
+        "霍斯劳花瓣鞭": 20050000
+        "巨人红发鞭": 20060000
+        "软鞭剑": 20070000
     "Caesti":
-        "Caestus": 21000000
-        "Spiked Caestus": 21010000
-        "Grafted Dragon": 21060000
-        "Iron Ball": 21070000
-        "Star Fist": 21080000
-        "Katar": 21100000
-        "Clinging Bone": 21110000
-        "Veteran's Prosthesis": 21120000
-        "Cipher Pata": 21130000
+        "搏击手套": 21000000
+        "棘刺搏击手套": 21010000
+        "接肢飞龙": 21060000
+        "铁球拳套": 21070000
+        "晨星拳套": 21080000
+        "拳剑": 21100000
+        "攀附手骨": 21110000
+        "老将的义足": 21120000
+        "秘文帕塔剑": 21130000
     "Claws":
-        "Hookclaws": 22000000
-        "Venomous Fang": 22010000
-        "Bloodhound Claws": 22020000
-        "Raptor Talons": 22030000
+        "钩爪": 22000000
+        "毒蛇牙": 22010000
+        "猎犬弯爪": 22020000
+        "猛禽钩爪": 22030000
     "Colossal Weapons":
-        "Prelate's Inferno Crozier": 23000000
-        "Watchdog's Staff": 23010000
-        "Great Club": 23020000
-        "Envoy's Greathorn": 23030000
-        "Duelist Greataxe": 23040000
-        "Axe of Godfrey": 23050000
-        "Dragon Greatclaw": 23060000
-        "Staff of the Avatar": 23070000
-        "Fallingstar Beast Jaw": 23080000
-        "Ghiza's Wheel": 23100000
-        "Giant-Crusher": 23110000
-        "Golem's Halberd": 23120000
-        "Troll's Hammer": 23130000
-        "Rotten Staff": 23140000
-        "Rotten Greataxe": 23150000
+        "主教大火槌": 23000000
+        "看门犬锡杖": 23010000
+        "巨型棍棒": 23020000
+        "众使者的扇形笛子": 23030000
+        "斗士大斧": 23040000
+        "葛孚雷的王斧": 23050000
+        "大龙爪": 23060000
+        "化身仪式杖": 23070000
+        "星兽半颚": 23080000
+        "基萨的刺轮": 23100000
+        "粉碎巨人槌": 23110000
+        "魔像戟": 23120000
+        "山妖大槌": 23130000
+        "腐败仪式杖": 23140000
+        "腐败大斧": 23150000
     "Torches":
-        "Torch": 24000000
-        "Steel-Wire Torch": 24020000
-        "St. Trina's Torch": 24040000
-        "Ghostflame Torch": 24050000
-        "Beast-Repellent Torch": 24060000
-        "Sentry's Torch": 24070000
+        "火把": 24000000
+        "钢丝火把": 24020000
+        "托莉娜烛火": 24040000
+        "灵火火把": 24050000
+        "驱兽火把": 24060000
+        "哨兵火把": 24070000
     "Small Shields":
-        "Buckler": 30000000
-        "Perfumer's Shield": 30010000
-        "Man-Serpent's Shield": 30020000
-        "Rickety Shield": 30030000
-        "Pillory Shield": 30040000
-        "Beastman's Jar-Shield": 30060000
-        "Red Thorn Roundshield": 30070000
-        "Scripture Wooden Shield": 30080000
-        "Riveted Wooden Shield": 30090000
-        "Blue-White Wooden Shield": 30100000
-        "Rift Shield": 30110000
-        "Iron Roundshield": 30120000
-        "Gilded Iron Shield": 30130000
-        "Ice Crest Shield": 30140000
-        "Smoldering Shield": 30150000
-        "Spiralhorn Shield": 30190000
-        "Coil Shield": 30200000
+        "小圆盾": 30000000
+        "调香师盾": 30010000
+        "蛇人盾": 30020000
+        "半坏木盾": 30030000
+        "枷锁盾": 30040000
+        "兽人壶盾": 30060000
+        "红棘木盾": 30070000
+        "圣句木盾": 30080000
+        "铁铆钉木盾": 30090000
+        "蓝白木盾": 30100000
+        "裂缝盾": 30110000
+        "铁圆盾": 30120000
+        "金黄铁盾": 30130000
+        "冰纹铁盾": 30140000
+        "熏烧盾": 30150000
+        "旋角盾": 30190000
+        "盘蛇盾": 30200000
     "Medium Shields":
-        "Kite Shield": 31000000
-        "Marred Leather Shield": 31010000
-        "Marred Wooden Shield": 31020000
-        "Banished Knight's Shield": 31030000
-        "Albinauric Shield": 31040000
-        "Sun Realm Shield": 31050000
-        "Silver Mirrorshield": 31060000
-        "Round Shield": 31070000
-        "Scorpion Kite Shield": 31080000
-        "Twinbird Kite Shield": 31090000
-        "Blue-Gold Kite Shield": 31100000
-        "Brass Shield": 31130000
-        "Great Turtle Shell": 31140000
-        "Shield of the Guilty": 31170000
-        "Carian Knight's Shield": 31190000
-        "Large Leather Shield": 31230000
-        "Horse Crest Wooden Shield": 31240000
-        "Candletree Wooden Shield": 31250000
-        "Flame Crest Wooden Shield": 31260000
-        "Hawk Crest Wooden Shield": 31270000
-        "Beast Crest Heater Shield": 31280000
-        "Red Crest Heater Shield": 31290000
-        "Blue Crest Heater Shield": 31300000
-        "Eclipse Crest Heater Shield": 31310000
-        "Inverted Hawk Heater Shield": 31320000
-        "Heater Shield": 31330000
-        "Black Leather Shield": 31340000
+        "鸢形盾": 31000000
+        "侵蚀皮盾": 31010000
+        "侵蚀木盾": 31020000
+        "失乡骑士盾": 31030000
+        "白金盾": 31040000
+        "太阳城盾": 31050000
+        "白银盾": 31060000
+        "圆盾": 31070000
+        "蝎纹鸢形盾": 31080000
+        "双鸟鸢形盾": 31090000
+        "蓝金鸢形盾": 31100000
+        "黄铜盾": 31130000
+        "大乌龟壳": 31140000
+        "罪人盾": 31170000
+        "卡利亚骑士盾": 31190000
+        "大皮盾": 31230000
+        "马纹木盾": 31240000
+        "烛树纹木盾": 31250000
+        "火纹木盾": 31260000
+        "鹰纹木盾": 31270000
+        "兽纹熨斗形盾": 31280000
+        "红纹熨斗形盾": 31290000
+        "蓝纹熨斗形盾": 31300000
+        "日蚀纹熨斗形盾": 31310000
+        "逆鹰纹熨斗形盾": 31320000
+        "熨斗形盾": 31330000
+        "黑皮盾": 31340000
     "Greatshields":
-        "Dragon Towershield": 32000000
-        "Distinguished Greatshield": 32020000
-        "Crucible Hornshield": 32030000
-        "Dragonclaw Shield": 32040000
-        "Briar Greatshield": 32050000
-        "Erdtree Greatshield": 32080000
-        "Golden Beast Crest Shield": 32090000
-        "Jellyfish Shield": 32120000
-        "Fingerprint Stone Shield": 32130000
-        "Icon Shield": 32140000
-        "One-Eyed Shield": 32150000
-        "Visage Shield": 32160000
-        "Spiked Palisade Shield": 32170000
-        "Manor Towershield": 32190000
-        "Crossed-Tree Towershield": 32200000
-        "Inverted Hawk Towershield": 32210000
-        "Ant's Skull Plate": 32220000
-        "Redmane Greatshield": 32230000
-        "Eclipse Crest Greatshield": 32240000
-        "Cuckoo Greatshield": 32250000
-        "Golden Greatshield": 32260000
-        "Gilded Greatshield": 32270000
-        "Haligtree Crest Greatshield": 32280000
-        "Wooden Greatshield": 32290000
-        "Lordsworn's Shield": 32300000
+        "龙塔盾": 32000000
+        "名门大盾": 32020000
+        "熔炉角盾": 32030000
+        "龙爪盾": 32040000
+        "铁棘大盾": 32050000
+        "黄金树大盾": 32080000
+        "兽纹黄金盾": 32090000
+        "水母盾": 32120000
+        "指纹石盾": 32130000
+        "神圣绘画盾": 32140000
+        "独眼盾": 32150000
+        "颜面盾": 32160000
+        "钉墙盾": 32170000
+        "城寨塔盾": 32190000
+        "交错树塔盾": 32200000
+        "逆鹰塔盾": 32210000
+        "蚂蚁头盾": 32220000
+        "红狮子大盾": 32230000
+        "日蚀纹大盾": 32240000
+        "杜鹃大盾": 32250000
+        "黄金大盾": 32260000
+        "金黄大盾": 32270000
+        "圣树纹大盾": 32280000
+        "木制大盾": 32290000
+        "君王军大盾": 32300000
     "Staves":
-        "Glintstone Staff": 33000000
-        "Crystal Staff": 33040000
-        "Gelmir Glintstone Staff": 33050000
-        "Demi-Human Queen's Staff": 33060000
-        "Carian Regal Scepter": 33090000
-        "Digger's Staff": 33120000
-        "Astrologer's Staff": 33130000
-        "Carian Glintblade Staff": 33170000
-        "Prince of Death's Staff": 33180000
-        "Albinauric Staff": 33190000
-        "Academy Glintstone Staff": 33200000
-        "Carian Glintstone Staff": 33210000
-        "Azur's Glintstone Staff": 33230000
-        "Lusat's Glintstone Staff": 33240000
-        "Meteorite Staff": 33250000
-        "Staff of the Guilty": 33260000
-        "Rotten Crystal Staff": 33270000
-        "Staff of Loss": 33280000
+        "辉石杖": 33000000
+        "结晶杖": 33040000
+        "格密尔辉石杖": 33050000
+        "亚人女王杖": 33060000
+        "卡利亚权杖": 33090000
+        "挖石杖": 33120000
+        "观星杖": 33130000
+        "卡利亚辉剑杖": 33170000
+        "死王子杖": 33180000
+        "白金杖": 33190000
+        "学院辉石杖": 33200000
+        "卡利亚辉石杖": 33210000
+        "亚兹勒的辉石杖": 33230000
+        "卢瑟特的辉石杖": 33240000
+        "陨石杖": 33250000
+        "罪人杖": 33260000
+        "腐败结晶杖": 33270000
+        "丧失杖": 33280000
     "Seals":
-        "Finger Seal": 34000000
-        "Godslayer's Seal": 34010000
-        "Giant's Seal": 34020000
-        "Gravel Stone Seal": 34030000
-        "Clawmark Seal": 34040000
-        "Golden Order Seal": 34060000
-        "Erdtree Seal": 34070000
-        "Dragon Communion Seal": 34080000
-        "Frenzied Flame Seal": 34090000
+        "指头圣印记": 34000000
+        "狩猎神祇圣印记": 34010000
+        "巨人圣印记": 34020000
+        "碎石圣印记": 34030000
+        "爪痕圣印记": 34040000
+        "黄金律法圣印记": 34060000
+        "黄金树圣印记": 34070000
+        "龙飨印记": 34080000
+        "癫火圣印记": 34090000
     "Small Bows":
-        "Shortbow": 40000000
-        "Misbegotten Shortbow": 40010000
-        "Red Branch Shortbow": 40020000
-        "Harp Bow": 40030000
-        "Composite Bow": 40050000
+        "短弓": 40000000
+        "混种小弓": 40010000
+        "红木短弓": 40020000
+        "竖琴弓": 40030000
+        "复合弓": 40050000
     "Bows":
-        "Longbow": 41000000
-        "Albinauric Bow": 41010000
-        "Horn Bow": 41020000
-        "Erdtree Bow": 41030000
-        "Serpent Bow": 41040000
-        "Pulley Bow": 41060000
-        "Black Bow": 41070000
+        "长弓": 41000000
+        "白金弓": 41010000
+        "角弓": 41020000
+        "黄金树弓": 41030000
+        "蛇弓": 41040000
+        "滑轮弓": 41060000
+        "黑弓": 41070000
     "Greatbows":
-        "Lion Greatbow": 42000000
-        "Golem Greatbow": 42010000
-        "Erdtree Greatbow": 42030000
-        "Greatbow": 42040000
+        "狮子大弓": 42000000
+        "魔像大弓": 42010000
+        "黄金树大弓": 42030000
+        "大弓": 42040000
     "Crossbows":
-        "Soldier's Crossbow": 43000000
-        "Light Crossbow": 43020000
-        "Heavy Crossbow": 43030000
-        "Pulley Crossbow": 43050000
-        "Full Moon Crossbow": 43060000
-        "Arbalest": 43080000
+        "士兵弩": 43000000
+        "轻弩": 43020000
+        "重弩": 43030000
+        "滑轮弩": 43050000
+        "圆月弩": 43060000
+        "钢弩": 43080000
         "Buckshot Crossbow": 43100000
-        "Crepus's Black-Key Crossbow": 43110000
+        "克雷普的黑键": 43110000
     "Ballistae":
-        "Hand Ballista": 44000000
-        "Jar Cannon": 44010000
+        "携带型弩炮": 44000000
+        "壶大炮": 44010000
     "Arrows":
-        "Arrow": 50000000
-        "Fire Arrow": 50010000
-        "Serpent Arrow": 50020000
-        "Bone Arrow (Fletched)": 50030000
-        "St. Trina's Arrow": 50040000
-        "Shattershard Arrow (Fletched)": 50060000
-        "Rainbow Stone Arrow (Fletched)": 50080000
-        "Golden Arrow": 50090000
-        "Dwelling Arrow": 50100000
-        "Bone Arrow": 50110000
-        "Firebone Arrow (Fletched)": 50130000
-        "Firebone Arrow": 50140000
-        "Poisonbone Arrow (Fletched)": 50150000
-        "Poisonbone Arrow": 50160000
-        "Sleepbone Arrow (Fletched)": 50170000
-        "Sleepbone Arrow": 50180000
-        "Stormwing Bone Arrow": 50190000
-        "Lightningbone Arrow (Fletched)": 50200000
-        "Lightningbone Arrow": 50210000
-        "Rainbow Stone Arrow": 50220000
-        "Shattershard Arrow": 50230000
-        "Spiritflame Arrow": 50240000
+        "箭矢": 50000000
+        "火箭": 50010000
+        "飞蛇毒箭": 50020000
+        "兽骨箭（附箭羽）": 50030000
+        "托莉娜箭": 50040000
+        "碎片生音箭（附箭羽）": 50060000
+        "虹彩石箭（附箭羽）": 50080000
+        "黄金箭": 50090000
+        "宿灵箭": 50100000
+        "兽骨箭": 50110000
+        "兽骨火箭（附箭羽）": 50130000
+        "兽骨火箭": 50140000
+        "兽骨毒箭（附箭羽）": 50150000
+        "兽骨毒箭": 50160000
+        "兽骨催眠箭（附箭羽）": 50170000
+        "兽骨催眠箭": 50180000
+        "风暴羽毛兽骨箭": 50190000
+        "兽骨雷箭（附箭羽）": 50200000
+        "兽骨雷箭": 50210000
+        "虹彩石箭": 50220000
+        "碎片生音箭": 50230000
+        "灵火箭": 50240000
         "Storm Arrow": 50250000
-        "Magicbone Arrow (Fletched)": 50260000
-        "Magicbone Arrow": 50270000
-        "Haligbone Arrow (Fletched)": 50280000
-        "Haligbone Arrow": 50290000
-        "Bloodbone Arrow (Fletched)": 50300000
-        "Bloodbone Arrow": 50310000
-        "Coldbone Arrow (Fletched)": 50320000
-        "Coldbone Arrow": 50330000
-        "Rotbone Arrow (Fletched)": 50340000
-        "Rotbone Arrow": 50350000
+        "兽骨魔力箭（附箭羽）": 50260000
+        "兽骨魔力箭": 50270000
+        "兽骨圣箭（附箭羽）": 50280000
+        "兽骨圣箭": 50290000
+        "兽骨出血箭（附箭羽）": 50300000
+        "兽骨出血箭": 50310000
+        "兽骨结冰箭（附箭羽）": 50320000
+        "兽骨结冰箭": 50330000
+        "兽骨腐败箭（附箭羽）": 50340000
+        "兽骨腐败箭": 50350000
     "Greatarrows":
-        "Great Arrow": 51000000
-        "Golem's Great Arrow": 51010000
-        "Golden Great Arrow": 51020000
-        "Golem's Magic Arrow": 51030000
-        "Radahn's Spear": 51040000
-        "Bone Great Arrow (Fletched)": 51050000
-        "Bone Great Arrow": 51060000
+        "大箭": 51000000
+        "魔像大箭": 51010000
+        "黄金大箭": 51020000
+        "魔像魔力箭": 51030000
+        "拉塔恩的矛": 51040000
+        "兽骨大箭（附箭羽）": 51050000
+        "兽骨大箭": 51060000
     "Bolts":
-        "Bolt": 52000000
-        "Lightning Bolt": 52010000
-        "Perfumer's Bolt": 52020000
-        "Black-Key Bolt": 52030000
-        "Burred Bolt": 52040000
-        "Meteor Bolt": 52050000
-        "Explosive Bolt": 52060000
-        "Golden Bolt": 52070000
-        "Lordsworn's Bolt": 52080000
-        "Bone Bolt": 52090000
-        "Firebone Bolt": 52100000
-        "Lightningbone Bolt": 52110000
-        "Magicbone Bolt": 52120000
-        "Haligbone Bolt": 52130000
-        "Poisonbone Bolt": 52140000
-        "Bloodbone Bolt": 52150000
-        "Coldbone Bolt": 52160000
-        "Rotbone Bolt": 52170000
-        "Sleepbone Bolt": 52180000
-        "Flaming Bolt": 52190000
+        "弩箭": 52000000
+        "雷电弩箭": 52010000
+        "调香弩箭": 52020000
+        "黑键木桩": 52030000
+        "倒刺弩箭": 52040000
+        "流星弩箭": 52050000
+        "爆炸弩箭": 52060000
+        "黄金弩箭": 52070000
+        "君王军弩箭": 52080000
+        "兽骨弩箭": 52090000
+        "兽骨火弩箭": 52100000
+        "兽骨雷弩箭": 52110000
+        "兽骨魔力弩箭": 52120000
+        "兽骨圣弩箭": 52130000
+        "兽骨毒弩箭": 52140000
+        "兽骨出血弩箭": 52150000
+        "兽骨结冰弩箭": 52160000
+        "兽骨腐败弩箭": 52170000
+        "兽骨催眠弩箭": 52180000
+        "猛火弩箭": 52190000
     "Greatbolts":
-        "Ballista Bolt": 53000000
-        "Lightning Greatbolt": 53010000
-        "Explosive Greatbolt": 53020000
-        "Bone Ballista Bolt": 53030000
+        "弩炮箭": 53000000
+        "雷电大弩箭": 53010000
+        "爆炸大弩箭": 53020000
+        "兽骨弩炮箭": 53030000
 "Armor":
     # "Type 1": 0x100003e8
     # "Type 2": 0x1000044c
